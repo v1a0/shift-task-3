@@ -1,6 +1,6 @@
 # NgBb
 
-<img src="https://s8.gifyu.com/images/ezgif.com-video-to-gifb216af698f6c5e68.gif" />
+![](https://raw.githubusercontent.com/V1A0/imgs/main/shift-task-3/bb-api.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
