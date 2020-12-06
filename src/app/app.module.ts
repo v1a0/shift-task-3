@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApimasterComponent } from './apimaster/apimaster.component';
 import { ApiService } from "./api.service";
-import { HttpModule } from "@angular/http";
+import { HttpClientModule } from "@angular/common/http";
 import { SorterPipe } from './sorter.pipe';
 import { QuotesComponent } from './quotes/quotes.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -25,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [

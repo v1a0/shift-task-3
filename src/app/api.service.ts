@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from "@angular/http";
 import { map } from "rxjs/operators"
+import { HttpClient } from "@angular/common/http";
+import { Quote } from "./quotes/quote";
+import {Character} from "./apimaster/character";
 
 @Injectable({
   providedIn: 'root'
@@ -8,27 +10,24 @@ import { map } from "rxjs/operators"
 export class ApiService {
 
   constructor(
-    private http: Http
+    private http: HttpClient,
   ) { }
 
   getAllCharacters() {
-    const url = "https://breakingbadapi.com/api/characters"
-    return this.http.get(url)
-      .pipe(map(res => res.json()))
-  }
+    const url = "https://breakingbadapi.com/api/characters";
+    return this.http.get<Character[]>(url);
+  };
 
-  getQuotesOfAllChar(id) {
-    const url = "https://breakingbadapi.com/api/quotes"
-    return this.http.get(url)
-      .pipe(map(res => res.json()))
-  }
+  getQuotesOfAllChar() {
+    const url = "https://breakingbadapi.com/api/quotes";
+    return this.http.get<Quote[]>(url);
+  };
 
   getCharacterNameById(id) {
-    const url = "https://breakingbadapi.com/api/characters/" + id
-    return this.http.get(url)
+    const url = "https://breakingbadapi.com/api/characters/" + id;
+    return this.http.get<Character>(url)
       .pipe(map(res => {
-        const data = res.json()
-        return data[0].name
+        return res[0].name;
       }))
   }
 

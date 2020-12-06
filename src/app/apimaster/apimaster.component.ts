@@ -1,45 +1,48 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { ApiService } from "../api.service";
 import { Router } from '@angular/router';
 import { Character } from './character'
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-apimaster',
   templateUrl: './apimaster.component.html',
-  styleUrls: ['./apimaster.component.scss']
+  styleUrls: ['./apimaster.component.scss'],
 })
 
-export class ApimasterComponent implements OnInit {
+export class ApimasterComponent implements OnInit, OnDestroy {
 
   constructor(
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
   ) { }
 
-  allCharacters1: Character[] = [];
-  allCharacters = [];
+  private subs: Subscription;
+  allCharacters: Character[] = [];
   status: string = '';
   loaded: boolean = false;
 
   ngOnInit(): void {
-    this.apiReq()
-
+    this.apiReq();
   }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  };
 
   apiReq() {
-    this.apiService.getAllCharacters().subscribe(data => {
-      this.allCharacters = data
-      console.log(data)
-      this.loaded = true
+    this.subs = this.apiService.getAllCharacters().subscribe(data => {
+      this.allCharacters = data;
+      this.loaded = true;
     })
-  }
+  };
 
   sortByStatus(status) {
-    this.status = status
-  }
+    this.status = status;
+  };
 
   routerNavigateTo(link: string) {
-    this.router.navigate([link])
-  }
+    this.router.navigate([link]);
+  };
 
 }

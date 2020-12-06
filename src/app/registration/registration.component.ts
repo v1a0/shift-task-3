@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   fg: FormGroup;
-  signedUp: boolean;
+  signedUp: boolean = false;
 
   constructor(
     private fb: FormBuilder
@@ -28,10 +28,10 @@ export class RegistrationComponent implements OnInit {
   isControlValid(controlName: string): boolean {
     const control = this.fg.controls[controlName];
     if (!control.touched) {
-      return true
+      return true;
     }
     else {
-      return !control.invalid;
+      return control.valid;
     }
   };
 
@@ -52,11 +52,11 @@ export class RegistrationComponent implements OnInit {
     return false;
   };
 
-  signUp() {
+  signUp(): void {
     if (this.fg.valid) {
-      this.signedUp = true
-      console.log(this.fg.value)
+      this.signedUp = true;
+      console.log(this.fg.value);
     }
-  }
+  };
 
 }
