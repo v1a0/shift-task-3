@@ -1,6 +1,10 @@
 <div class="top">
   <div class="w-100 d-flex justify-content-around">
     <p class="h1">SELECT STATUS</p>
+    <form>
+      <button type="button" class="btn btn-outline-success" (click)="routerNavigateTo('/auth')">Log in</button>
+      <button type="button" class="btn btn-outline-success ml-2" (click)="routerNavigateTo('/reg')">Sign up</button>
+    </form>
   </div>
 
   <form class="w-100 d-flex justify-content-around">
@@ -9,6 +13,7 @@
     <button type="button" class="btn btn-outline-danger glow-red" (click)="sortByStatus('Deceased')">Deceased</button>
     <button type="button" class="btn btn-outline-danger glow-red" (click)="sortByStatus('Presumed dead')">Presumed dead</button>
   </form>
+
 </div>
 
 <div *ngIf="!loaded" class="w-100 d-flex justify-content-around">

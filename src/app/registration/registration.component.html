@@ -1,0 +1,77 @@
+<div class="vertical-center">
+  <div class="w-100 d-flex justify-content-around">
+    <form
+      *ngIf="!this.signedUp"
+      [formGroup]="fg"
+      (ngSubmit)="signUp()"
+      class="form-signin">
+
+      <img class="rounded mx-auto d-block" src="https://avatars2.githubusercontent.com/u/54343363?s=460&u=5a7431b5017c7a54076704f90ec759dd75acdf65&v=4" alt="logo" height="95">
+
+      <h1 class="h3 mb-3 font-weight-normal text-center">Sign up</h1>
+
+      <div class="form-group">
+        <h1 class="h5 mb-2 font-weight-normal">Email address</h1>
+
+        <input
+          [ngClass]="isControlValid('email') ? 'form-control' : 'form-control glow-red'"
+          type="email" formControlName="email" id="exampleInputEmail1" aria-describedby="emailHelp"placeholder="Email address"
+        >
+
+        <small
+          *ngIf="!isControlValid('email')" class="form-text  red">
+          Incorrect email
+        </small>
+
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <input type="text" formControlName="firstName" class="form-control" placeholder="First name">
+            <small class="form-text text-muted">Optional parameters</small>
+          </div>
+          <div class="col">
+            <input type="text" formControlName="lastName" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h1 class="h5 mb-2 font-weight-normal">Password</h1>
+
+        <input
+          type="password"
+          formControlName="password"
+          [ngClass]="isControlValid('password') ? 'form-control' : 'form-control glow-red'"
+          placeholder="Enter here your password"
+        >
+
+        <input
+          type="password"
+          formControlName="passwordRep"
+          [ngClass]="isControlValid('passwordRep') && isPasswordsTheSame() ? 'form-control mt-2' : 'form-control mt-2 glow-red'"
+          placeholder="Repeat here your password"
+        >
+
+        <small
+          [ngClass]="isHighlightPwdHelp()  ? 'form-text text-muted' : 'form-text red'">
+          Make sure passwords the same, it's at least 6 characters long, contains numbers and special characters
+        </small>
+      </div>
+
+
+      <button
+        [ngClass]="this.fg.valid ? 'btn btn-primary' : 'btn btn-secondary'"
+        type="submit"
+       >Sign up</button>
+
+    </form>
+    <div *ngIf="this.signedUp" class="btn btn-light btn-lg">
+      <img class="rounded mx-auto d-block" src="https://avatars2.githubusercontent.com/u/54343363?s=460&u=5a7431b5017c7a54076704f90ec759dd75acdf65&v=4" alt="logo" height="95">
+      You successfully signed up!
+    </div>
+  </div>
+</div>

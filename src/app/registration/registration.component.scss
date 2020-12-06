@@ -1,0 +1,15 @@
+.vertical-center {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+
+input.glow-red{
+  border-color: red;
+  box-shadow:0 0 10px rgba(217, 42, 42, 0.24);
+}
+
+.red {
+  color: red;
+}

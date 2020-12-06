@@ -10,10 +10,10 @@ import { ApiService } from "../api.service";
 })
 export class QuotesComponent implements OnInit {
 
-  private routeSub: Subscription
-  private id
-  private displayableQuotes
-  private loaded = false
+  routeSub: Subscription
+  id
+  displayableQuotes
+  loaded = false
 
   constructor(
     private apiService: ApiService,
