@@ -1,6 +1,6 @@
 # NgBb
 
-![gif img](https://s8.gifyu.com/images/ezgif.com-video-to-gifb216af698f6c5e68.gif)
+<img src="https://s8.gifyu.com/images/ezgif.com-video-to-gifb216af698f6c5e68.gif" />
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
