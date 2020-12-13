@@ -4,4 +4,5 @@ export interface Character {
   status: string;
   img: string;
   char_id: number;
+  appearance: number[];
 }

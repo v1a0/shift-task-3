@@ -3,6 +3,7 @@ import { ApiService } from "../api.service";
 import { Router } from '@angular/router';
 import { Character } from './character'
 import { Subscription } from "rxjs";
+import { CharacterSearchPipe } from "../search/character-search.pipe";
 
 @Component({
   selector: 'app-apimaster',
@@ -32,6 +33,7 @@ export class ApimasterComponent implements OnInit, OnDestroy {
 
   apiReq() {
     this.subs = this.apiService.getAllCharacters().subscribe(data => {
+      console.log(data)
       this.allCharacters = data;
       this.loaded = true;
     })
@@ -41,8 +43,8 @@ export class ApimasterComponent implements OnInit, OnDestroy {
     this.status = status;
   };
 
+
   routerNavigateTo(link: string) {
     this.router.navigate([link]);
   };
-
 }
