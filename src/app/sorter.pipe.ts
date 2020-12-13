@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Character} from "./apimaster/character";
 
 @Pipe({
-  name: 'sorter'
+  name: 'sorter',
 })
 export class SorterPipe implements PipeTransform {
 

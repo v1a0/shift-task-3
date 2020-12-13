@@ -14,6 +14,10 @@
     <button type="button" class="btn btn-outline-danger glow-red" (click)="sortByStatus('Presumed dead')">Presumed dead</button>
   </form>
 
+  <form class="w-100 d-flex justify-content-around mt-4">
+    <button class="btn btn-outline-danger glow-red" [routerLink]="['/search']"><div class="h2">ADVANCED SEARCH FORM</div></button>
+  </form>
+
 </div>
 
 <div *ngIf="!loaded" class="w-100 d-flex justify-content-around">
@@ -24,7 +28,7 @@
 <div class="album py-5 bg-light">
   <div class="container">
     <div class="row">
-      <div *ngFor="let character of allCharacters | sorter: status" class="col-md-4">
+      <div *ngFor="let character of allCharacters | sorter: status " class="col-md-4">
         <div class="card mb-4 shadow-sm">
           <img src="{{character.img}}" alt="pic">
           <div class="card-body">

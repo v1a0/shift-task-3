@@ -11,6 +11,10 @@ import { QuotesComponent } from './quotes/quotes.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSliderModule} from "@angular/material/slider";
+import { CharacterSearchPipe } from './search/character-search.pipe';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     QuotesComponent,
     RegistrationComponent,
     AuthorizationComponent,
+    SearchComponent,
+    CharacterSearchPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSliderModule,
   ],
   providers: [
     ApiService
